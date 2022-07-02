@@ -1434,7 +1434,11 @@ function createTitleText(elem) {
   if (flattend_props.length === 0) {
     return null;
   }
-  return htmlTitle(`<table style='fixed'>${flattend_props.join('')}</table>`);
+  let image = "";
+  if (elem.properties.thumbnail && elem.properties.thumbnail[0]) {
+    image = `<img src="${elem.properties.thumbnail[0]}" height="120">`;
+  }
+  return htmlTitle(`<table style='fixed'>${flattend_props.join('')}</table>${image}`);
 }
 
 // Create random colors, with str as seed, and with fixed saturation and lightness
